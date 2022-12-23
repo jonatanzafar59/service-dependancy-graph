@@ -44,6 +44,7 @@
 
   let transform = d3.zoomIdentity;
   let simulation;
+
   onMount(() => {
     simulation = d3
       .forceSimulation(nodes)
@@ -137,7 +138,7 @@
 <svg bind:this={svg} {width} {height} fill="black">
   {#each links as link}
     <g stroke="#999" stroke-opacity="0.6">
-      <line
+      <!-- <line
         x1={link.source.x}
         y1={link.source.y}
         x2={link.target.x}
@@ -145,7 +146,49 @@
         transform="translate({transform.x} {transform.y}) scale({transform.k} {transform.k})"
       >
         <title>{link.source.id}</title>
-      </line>
+      </line> -->
+      <defs>
+        <marker
+          id="arrow"
+          markerWidth="10"
+          markerHeight="10"
+          refX="9"
+          refY="3"
+          orient="auto"
+          markerUnits="strokeWidth"
+        >
+          <path d="M0,0 L0,6 L9,3 z" fill="#f00" />
+        </marker>
+      </defs>
+      <line
+        class="link"
+        x1={link.source.x}
+        y1={link.source.y}
+        x2={link.target.x}
+        y2={link.target.y}
+        marker-end="url(#arrow)"
+        transform="translate({transform.x} {transform.y}) scale({transform.k} {transform.k})"
+      />
+      <style>
+        .link:hover {
+          stroke-width: 3px;
+        }
+      </style>
+      <svg>
+        <defs>
+          <marker
+            id="arrowhead"
+            orient="auto"
+            markerWidth="8"
+            markerHeight="8"
+            refX="10"
+            refY="3"
+          >
+            <path d="M0,0 L0,6 L9,3 z" fill="#333" />
+          </marker>
+        </defs>
+        ...
+      </svg>
     </g>
   {/each}
 

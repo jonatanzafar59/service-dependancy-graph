@@ -5501,45 +5501,93 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (138:2) {#each links as link}
+    // (139:2) {#each links as link}
     function create_each_block_1(ctx) {
     	let g;
+    	let defs0;
+    	let marker0;
+    	let path0;
     	let line;
-    	let title;
-    	let t_value = /*link*/ ctx[21].source.id + "";
-    	let t;
     	let line_x__value;
     	let line_y__value;
     	let line_x__value_1;
     	let line_y__value_1;
     	let line_transform_value;
+    	let style;
+    	let t0;
+    	let svg_1;
+    	let defs1;
+    	let marker1;
+    	let path1;
+    	let t1;
 
     	const block = {
     		c: function create() {
     			g = svg_element("g");
+    			defs0 = svg_element("defs");
+    			marker0 = svg_element("marker");
+    			path0 = svg_element("path");
     			line = svg_element("line");
-    			title = svg_element("title");
-    			t = text(t_value);
-    			add_location(title, file$1, 146, 8, 3687);
+    			style = svg_element("style");
+    			t0 = text(".link:hover {\n          stroke-width: 3px;\n        }\n      ");
+    			svg_1 = svg_element("svg");
+    			defs1 = svg_element("defs");
+    			marker1 = svg_element("marker");
+    			path1 = svg_element("path");
+    			t1 = text("\n        ...\n      ");
+    			attr_dev(path0, "d", "M0,0 L0,6 L9,3 z");
+    			attr_dev(path0, "fill", "#f00");
+    			add_location(path0, file$1, 159, 10, 3966);
+    			attr_dev(marker0, "id", "arrow");
+    			attr_dev(marker0, "markerWidth", "10");
+    			attr_dev(marker0, "markerHeight", "10");
+    			attr_dev(marker0, "refX", "9");
+    			attr_dev(marker0, "refY", "3");
+    			attr_dev(marker0, "orient", "auto");
+    			attr_dev(marker0, "markerUnits", "strokeWidth");
+    			add_location(marker0, file$1, 150, 8, 3764);
+    			add_location(defs0, file$1, 149, 6, 3749);
+    			attr_dev(line, "class", "link");
     			attr_dev(line, "x1", line_x__value = /*link*/ ctx[21].source.x);
     			attr_dev(line, "y1", line_y__value = /*link*/ ctx[21].source.y);
     			attr_dev(line, "x2", line_x__value_1 = /*link*/ ctx[21].target.x);
     			attr_dev(line, "y2", line_y__value_1 = /*link*/ ctx[21].target.y);
+    			attr_dev(line, "marker-end", "url(#arrow)");
     			attr_dev(line, "transform", line_transform_value = "translate(" + /*transform*/ ctx[3].x + " " + /*transform*/ ctx[3].y + ") scale(" + /*transform*/ ctx[3].k + " " + /*transform*/ ctx[3].k + ")");
-    			add_location(line, file$1, 139, 6, 3463);
+    			add_location(line, file$1, 162, 6, 4046);
+    			add_location(style, file$1, 171, 6, 4323);
+    			attr_dev(path1, "d", "M0,0 L0,6 L9,3 z");
+    			attr_dev(path1, "fill", "#333");
+    			add_location(path1, file$1, 186, 12, 4629);
+    			attr_dev(marker1, "id", "arrowhead");
+    			attr_dev(marker1, "orient", "auto");
+    			attr_dev(marker1, "markerWidth", "8");
+    			attr_dev(marker1, "markerHeight", "8");
+    			attr_dev(marker1, "refX", "10");
+    			attr_dev(marker1, "refY", "3");
+    			add_location(marker1, file$1, 178, 10, 4444);
+    			add_location(defs1, file$1, 177, 8, 4427);
+    			attr_dev(svg_1, "class", "svelte-1yaxebp");
+    			add_location(svg_1, file$1, 176, 6, 4413);
     			attr_dev(g, "stroke", "#999");
     			attr_dev(g, "stroke-opacity", "0.6");
-    			add_location(g, file$1, 138, 4, 3418);
+    			add_location(g, file$1, 139, 4, 3419);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, g, anchor);
+    			append_dev(g, defs0);
+    			append_dev(defs0, marker0);
+    			append_dev(marker0, path0);
     			append_dev(g, line);
-    			append_dev(line, title);
-    			append_dev(title, t);
+    			append_dev(g, style);
+    			append_dev(style, t0);
+    			append_dev(g, svg_1);
+    			append_dev(svg_1, defs1);
+    			append_dev(defs1, marker1);
+    			append_dev(marker1, path1);
+    			append_dev(svg_1, t1);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*links*/ 16 && t_value !== (t_value = /*link*/ ctx[21].source.id + "")) set_data_dev(t, t_value);
-
     			if (dirty & /*links*/ 16 && line_x__value !== (line_x__value = /*link*/ ctx[21].source.x)) {
     				attr_dev(line, "x1", line_x__value);
     			}
@@ -5569,14 +5617,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(138:2) {#each links as link}",
+    		source: "(139:2) {#each links as link}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (152:2) {#each nodes as point}
+    // (195:2) {#each nodes as point}
     function create_each_block(ctx) {
     	let g;
     	let circle;
@@ -5602,20 +5650,20 @@ var app = (function () {
     			t0 = text(t0_value);
     			text_1 = svg_element("text");
     			t1 = text(t1_value);
-    			add_location(title, file$1, 161, 8, 4027);
+    			add_location(title, file$1, 204, 8, 5026);
     			attr_dev(circle, "class", "node svelte-1yaxebp");
     			attr_dev(circle, "r", "5");
     			attr_dev(circle, "fill", circle_fill_value = /*colourScale*/ ctx[6](/*point*/ ctx[18].group));
     			attr_dev(circle, "cx", circle_cx_value = /*point*/ ctx[18].x);
     			attr_dev(circle, "cy", circle_cy_value = /*point*/ ctx[18].y);
     			attr_dev(circle, "transform", circle_transform_value = "translate(" + /*transform*/ ctx[3].x + " " + /*transform*/ ctx[3].y + ") scale(" + /*transform*/ ctx[3].k + " " + /*transform*/ ctx[3].k + ")");
-    			add_location(circle, file$1, 153, 6, 3792);
+    			add_location(circle, file$1, 196, 6, 4791);
     			attr_dev(text_1, "x", text_1_x_value = /*point*/ ctx[18].x);
     			attr_dev(text_1, "y", text_1_y_value = /*point*/ ctx[18].y);
     			attr_dev(text_1, "text-anchor", "middle");
     			attr_dev(text_1, "transform", text_1_transform_value = "translate(" + /*transform*/ ctx[3].x + " " + /*transform*/ ctx[3].y + ") scale(" + /*transform*/ ctx[3].k + " " + /*transform*/ ctx[3].k + ")");
-    			add_location(text_1, file$1, 163, 6, 4075);
-    			add_location(g, file$1, 152, 4, 3782);
+    			add_location(text_1, file$1, 206, 6, 5074);
+    			add_location(g, file$1, 195, 4, 4781);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, g, anchor);
@@ -5667,7 +5715,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(152:2) {#each nodes as point}",
+    		source: "(195:2) {#each nodes as point}",
     		ctx
     	});
 
@@ -5713,7 +5761,7 @@ var app = (function () {
     			attr_dev(svg_1, "height", /*height*/ ctx[2]);
     			attr_dev(svg_1, "fill", "black");
     			attr_dev(svg_1, "class", "svelte-1yaxebp");
-    			add_location(svg_1, file$1, 136, 0, 3338);
+    			add_location(svg_1, file$1, 137, 0, 3339);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -6022,21 +6070,21 @@ var app = (function () {
 
     var data = {
     	"nodes": [
-    		{"id":"extension","group":"frontend"},
-    		{"id":"dashboard","group":"frontend"},
-    		{"id":"api-gateway","group":"aws"},
-    		{"id":"kafka","group":"aws"},
-    		{"id":"browsers-api","group":"backend"},
-    		{"id":"event-injester","group":"backend"},
-    		{"id":"events-api","group":"backend"},
-    		{"id":"extension-api","group":"backend"},
-    		{"id":"identity-provider-api","group":"backend"},
-    		{"id":"kafka-backup","group":"backend"},
-    		{"id":"phishing-features","group":"backend"},
-    		{"id":"policy-api","group":"backend"},
-    		{"id":"tenants-api","group":"backend"},
-    		{"id":"tasks","group":"backend"},
-    		{"id":"dashboard-api","group":"backend"},	
+    		{"name":"extension","id":"extension","group":"frontend"},
+    		{"name":"dashboard","id":"dashboard","group":"frontend"},
+    		{"name":"api-gateway","id":"api-gateway","group":"aws"},
+    		{"name":"kafka","id":"kafka","group":"aws"},
+    		{"name":"browsers-api","id":"browsers-api","group":"backend"},
+    		{"name":"event-injester","id":"event-injester","group":"backend"},
+    		{"name":"events-api","id":"events-api","group":"backend"},
+    		{"name":"extension-api","id":"extension-api","group":"backend"},
+    		{"name":"identity-provider-api","id":"identity-provider-api","group":"backend"},
+    		{"name":"kafka-backup","id":"kafka-backup","group":"backend"},
+    		{"name":"phishing-features","id":"phishing-features","group":"backend"},
+    		{"name":"policy-api","id":"policy-api","group":"backend"},
+    		{"name":"tenants-api","id":"tenants-api","group":"backend"},
+    		{"name":"tasks","id":"tasks","group":"backend"},
+    		{"name":"dashboard-api","id":"dashboard-api","group":"backend"},
     	],
     	"links": [
     		{"source":"api-gateway","target":"extension","value":3},

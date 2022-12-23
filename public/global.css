@@ -60,3 +60,8 @@ button:active {
 button:focus {
 	border-color: #666;
 }
+
+.node-label {
+	fill: red;
+	font-size: 16px;
+  }
