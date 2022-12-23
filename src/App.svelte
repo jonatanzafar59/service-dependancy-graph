@@ -16,27 +16,27 @@
     // },
   ];
 
-  let selectedGraph = graphList[0];
+  let currentGraph = graphList[0];
 </script>
 
-<div class="menu">
+<!-- <div class="menu">
   {#each graphList as graph}
     <button
       on:click={() => {
-        selectedGraph = graph;
+        currentGraph = graph;
       }}>{graph.name}</button
     >
   {/each}
-</div>
+</div> -->
 
 <div class="chart">
-  <svelte:component this={selectedGraph.component} graph={data} />
+  <svelte:component this={currentGraph.component} graph={data} />
 </div>
 
 <style>
   .chart {
     width: 100%;
-    max-width: 640px;
+    /* max-width: 640px; */
     height: calc(100% - 4em);
     min-height: 280px;
     max-height: 480px;

@@ -31,8 +31,8 @@
   export let graph;
 
   let svg;
-  let width = 500;
-  let height = 600;
+  let width = window.innerWidth;
+  let height = window.innerHeight;
   const nodeRadius = 10;
 
   const padding = { top: 20, right: 40, bottom: 40, left: 25 };
@@ -51,7 +51,7 @@
         "link",
         d3.forceLink(links).id((d) => d.id)
       )
-      .force("charge", d3.forceManyBody())
+      .force("charge", d3.forceManyBody().strength(-1000).distanceMax(1000))
       .force("center", d3.forceCenter(width / 2, height / 2))
       .on("tick", simulationUpdate);
 
@@ -98,7 +98,7 @@
   }
 
   function dragstarted(currentEvent) {
-    if (!currentEvent.active) simulation.alphaTarget(0.3).restart();
+    if (!currentEvent.active) simulation.alphaTarget(0.1).restart();
     currentEvent.subject.fx = transform.invertX(currentEvent.subject.x);
     currentEvent.subject.fy = transform.invertY(currentEvent.subject.y);
   }
@@ -109,8 +109,9 @@
   }
 
   function dragended(currentEvent) {
-    if (!currentEvent.active) simulation.alphaTarget(0);
-    currentEvent.subject.fx = null;
+    if (!currentEvent.active)
+      // simulation.alphaTarget(0);
+      currentEvent.subject.fx = null;
     currentEvent.subject.fy = null;
   }
 
@@ -119,7 +120,7 @@
   }
 </script>
 
-<h2>d3 Force Directed Graph in Sveltejs - Svelte created svg (zoom)</h2>
+<!-- <h2>d3 Force Directed Graph in Sveltejs - Svelte created svg (zoom)</h2>
 <p>
   Uses Svelte created SVG and DOM elements, with DOM element mouse handling.
 </p>
@@ -128,12 +129,12 @@
   Features: hover, drag nodes, zoom and pan with mouse or touch screen. Note: on
   small touch screens you may need to increase hit radius to hit a node with a
   'fat finger'!
-</p>
+</p> -->
 
 <svelte:window on:resize={resize} />
 
 <!-- SVG was here -->
-<svg bind:this={svg} {width} {height}>
+<svg bind:this={svg} {width} {height} fill="black">
   {#each links as link}
     <g stroke="#999" stroke-opacity="0.6">
       <line
