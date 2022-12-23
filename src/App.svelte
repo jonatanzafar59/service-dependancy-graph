@@ -1,33 +1,14 @@
 <script>
   import NetworkGraphSvelteSVG from "./NetworkGraphSvelteSVG.svelte";
-  import NetworkGraphD3SVG from "./NetworkGraphD3SVG.svelte";
-  import NetworkGraphCanvas from "./NetworkGraphCanvas.svelte";
-  import NetworkGraphCanvasIdContext from "./NetworkGraphCanvasIdContext.svelte";
 
   import data from "./data.js";
 
   const graphList = [
     { name: "NetworkGraphSvelteSVG", component: NetworkGraphSvelteSVG },
-    // { name: "NetworkGraphD3SVG", component: NetworkGraphD3SVG },
-    // { name: "NetworkGraphCanvas", component: NetworkGraphCanvas },
-    // {
-    //   name: "NetworkGraphCanvasIdContext",
-    //   component: NetworkGraphCanvasIdContext,
-    // },
   ];
 
   let currentGraph = graphList[0];
 </script>
-
-<!-- <div class="menu">
-  {#each graphList as graph}
-    <button
-      on:click={() => {
-        currentGraph = graph;
-      }}>{graph.name}</button
-    >
-  {/each}
-</div> -->
 
 <div class="chart">
   <svelte:component this={currentGraph.component} graph={data} />
@@ -36,7 +17,6 @@
 <style>
   .chart {
     width: 100%;
-    /* max-width: 640px; */
     height: calc(100% - 4em);
     min-height: 280px;
     max-height: 480px;
